@@ -1,0 +1,15 @@
+.git
+.idea
+.settings
+.wrangler
+target/*
+!target/nanjing.jar
+**/node_modules
+src/main/resources/admin/admin/dist
+src/main/resources/front/front/dist
+pages-site
+docs/screenshots
+supabase/.temp
+*.log
+.env
+.env.*
