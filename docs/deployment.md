@@ -18,6 +18,8 @@
 | Supabase schema | `ot_nanjing` |
 | 数据库迁移 | `supabase/migrations/202607090001_init_ot_nanjing.sql` |
 | License | PolyForm Noncommercial License 1.0.0 |
+| 首次部署提交 | `f368937 pr1-init-ot-nanjing-deployment` |
+| 最后验证时间 | `2026-07-10 10:37:04 +08:00` |
 
 ## 首次生产分支
 
