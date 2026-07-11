@@ -143,3 +143,17 @@ ResourceUnavailable.ResourceIsolated
 ```
 
 平台提示资源包过期或资源配额不足。恢复方式通常是升级/恢复 CloudBase 资源包，或在明确确认后释放不再使用的 CloudBase Run 服务。不要在未确认的情况下删除其他项目服务。
+
+## 2026-07-11 Pages Worker 恢复部署
+
+原 CloudBase Run 后端已出现 503、CORS 或资源隔离问题。线上演示已切换为 Cloudflare Pages Worker + Supabase 独立 schema：
+
+- Pages 项目：`ot-nanjing`
+- 稳定地址：https://ot-nanjing.pages.dev
+- Supabase schema：`ot_nanjing`
+- API：`/health`、`/api/login`、`/api/summary`、`/api/items/*`
+- 数据：3 个公开演示账号、18 条业务记录
+- 验证：全部账号登录、summary、列表、创建、更新、删除清理和 Playwright 登录前后视图均通过
+
+原 Java/Vue/SSM 源码继续保留；兼容层只负责稳定的公开作品集体验。
+
