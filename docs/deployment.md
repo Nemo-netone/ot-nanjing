@@ -26,7 +26,7 @@
 首次 Cloudflare Pages 生产部署使用 `main` 分支。后续重新发布应继续使用：
 
 ```powershell
-npx wrangler@3 pages deploy pages-site --project-name ot-nanjing --branch main
+npx wrangler@3 pages deploy original-site --project-name ot-nanjing --branch main
 ```
 
 保持项目名 `ot-nanjing` 和生产分支 `main` 不变，默认地址就会继续使用：
@@ -37,12 +37,12 @@ https://ot-nanjing.pages.dev
 
 ## 前端部署结构
 
-`pages-site/` 是本地生成的静态发布目录，不提交到 Git。生成规则：
+`original-site/` 是当前生产发布目录，包含恢复后的游客端、后台端和 Pages Worker 兼容 API，并提交到 Git 以确保部署内容可追溯。
 
 | 路径 | 内容 |
 |---|---|
-| `pages-site/` | 游客端 Vue 构建产物 |
-| `pages-site/admin/` | 后台端 Vue 构建产物 |
+| `original-site/` | 恢复后的游客端 Vue 构建产物与 Pages Worker |
+| `original-site/admin/` | 后台端 Vue 构建产物 |
 
 构建命令：
 
@@ -57,7 +57,7 @@ npm run build
 部署命令：
 
 ```powershell
-npx wrangler@3 pages deploy pages-site --project-name ot-nanjing --branch main
+npx wrangler@3 pages deploy original-site --project-name ot-nanjing --branch main
 ```
 
 ## 后端部署结构

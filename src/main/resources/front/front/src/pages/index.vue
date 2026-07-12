@@ -190,7 +190,7 @@ export default {
 }
 
 .body-containers {
-  background-image: url(http://codegen.caihongy.cn/20221024/3dac00c9fc144901a781afb3b54ec6b8.jpg);
+  background-image: url(https://codegen.caihongy.cn/20221024/3dac00c9fc144901a781afb3b54ec6b8.jpg);
   min-height: 100vh;
   position: relative;
 }
