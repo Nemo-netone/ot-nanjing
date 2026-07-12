@@ -115,7 +115,12 @@ async function handleAccount(table, action, id, params, env) {
     });
   }
 
-  if (action === "session") return ok({ data: accountRecord(table, { id: 1, username: table === "users" ? "admin" : "zhanghao1" }) });
+  if (action === "session") {
+    const sessionAccount = table === "users"
+      ? { id: 1, role: "admin", username: "admin" }
+      : { id: 2, role: "user", username: "\u8d26\u53f71", xingming: "\u65c5\u6e38\u7528\u6237" };
+    return ok({ data: accountRecord(table, sessionAccount) });
+  }
   if (action === "register" || action === "save" || action === "add" || action === "update") return ok({ msg: "操作成功", data: accountRecord(table, params) });
   if (action === "delete") return ok({ msg: "删除成功", data: null });
 
@@ -357,7 +362,8 @@ async function findAccount(env, table, username, password) {
   const fallback = [
     { id: 1, role: "admin", username: "admin", password: "admin" },
     { id: 2, role: "user", username: "zhanghao1", password: "123456" },
-    { id: 3, role: "user", username: "账号1", password: "123456" },
+    { id: 3, role: "user", username: "\u8d26\u53f71", password: "123456", xingming: "\u65c5\u6e38\u7528\u6237" },
+    { id: 4, role: "staff", username: "\u666f\u533a01", password: "123456", xingming: "\u666f\u533a\u8fd0\u8425" },
   ];
   const local = fallback.find((item) => item.username === username && item.password === password && (table === "users" ? item.role === "admin" : item.role !== "admin"));
   if (local) return local;
@@ -377,7 +383,7 @@ function accountRecord(table, account = {}) {
     id: Number(account.id || 2),
     zhanghao: username,
     mima: "******",
-    xingming: account.xingming || "游客用户",
+    xingming: account.xingming || (account.role === "staff" ? "\u666f\u533a\u8fd0\u8425" : "\u6e38\u5ba2\u7528\u6237"),
     xingbie: "男",
     nianling: 26,
     shouji: "13800000000",

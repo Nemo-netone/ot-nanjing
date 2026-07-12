@@ -44,9 +44,14 @@
 
 - `https://ot-nanjing.pages.dev/health` 返回 `frontend: original-vue-admin-front-dist`
 - 前台首页可见原系统标题、导航、景点/酒店/餐厅/攻略/天气模块
-- 前台用户 `zhanghao1 / 123456` 可登录并进入个人中心
+- 前台旅游用户 `账号1 / 123456` 可登录并进入个人中心
+- 前台景区运营 `景区01 / 123456` 可通过 `yonghu` 兼容映射登录原系统用户界面
 - 后台管理员 `admin / admin` 可登录并进入后台首页
 - 浏览器请求未再访问旧 CloudBase、`127.0.0.1` 或 `ot-nanjing-api` 容器地址
+- 核心列表 `jingdianxinxi`、`jiudianxinxi`、`cantingxinxi`、`news` 返回有效数据
+- 临时景点记录的创建、更新、删除兼容接口均返回成功，未写入持久业务数据
+- Playwright 桌面端逐账号登录通过，页面无脚本错误或失败请求
+- Playwright 移动视口可加载首页；原始 Vue 构建保留约 1200px 固定桌面宽度，窄屏存在横向滚动
 - 截图：
   - `docs/screenshots/original-home.png`
   - `docs/screenshots/original-login.png`
